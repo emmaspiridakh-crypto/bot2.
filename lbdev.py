@@ -3,8 +3,12 @@ from discord.ext import commands
 import os
 
 TOKEN = os.getenv("TOKEN")
-OWNER_ID = 1480636730070536264
-CO_OWNER_ID = 1480274417845010483 
+
+# ΒΑΛΕ ΕΔΩ ΟΛΑ ΤΑ IDs ΠΟΥ ΘΕΣ ΝΑ ΕΧΟΥΝ ΠΡΟΣΒΑΣΗ
+OWNER_IDS = [
+    1480274335686987857,  # Owner
+    1480274417845010483   # Co-Owner (ΒΑΛΕ ΤΟ ΔΙΚΟ ΣΟΥ)
+]
 
 intents = discord.Intents.default()
 intents.members = True
@@ -19,8 +23,8 @@ keep_alive()
 # ---------------- DMALL COMMAND ----------------
 @bot.command()
 async def dmall(ctx, *, message: str):
-    if ctx.author.id != OWNER_ID, CO_OWNER_ID:
-        return await ctx.send("❌ Μόνο ο owner μπορεί να το χρησιμοποιήσει.")
+    if ctx.author.id not in OWNER_IDS:
+        return await ctx.send("❌ Μόνο ο owner ή ο co-owner μπορεί να το χρησιμοποιήσει.")
 
     await ctx.send("📤 Ξεκινώ να στέλνω DM σε όλα τα μέλη...")
 
