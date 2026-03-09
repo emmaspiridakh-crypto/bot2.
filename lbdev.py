@@ -1,3 +1,7 @@
+# ---------------- KEEP ALIVE ----------------
+from keep_alive import keep_alive
+keep_alive()
+
 import discord
 from discord.ext import commands
 import os
@@ -15,10 +19,6 @@ intents.members = True
 intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
-
-# ---------------- KEEP ALIVE ----------------
-from keep_alive import keep_alive
-keep_alive()
 
 # ---------------- DMALL COMMAND ----------------
 @bot.command()
