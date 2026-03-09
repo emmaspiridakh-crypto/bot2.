@@ -13,6 +13,7 @@ OWNER_IDS = [
     1480274417845010483   # Co-Owner (ΒΑΛΕ ΤΟ ΔΙΚΟ ΣΟΥ)
 ]
 
+intents = discord.Intents.all()
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
@@ -40,6 +41,10 @@ async def dmall(ctx, *, message: str):
             failed += 1
 
     await ctx.send(f"✅ DM στάλθηκαν: {sent}\n❌ Απέτυχαν: {failed}")
+
+@bot.command()
+async def myid(ctx):
+    await ctx.send(f"Το πραγματικό σου ID είναι: `{ctx.author.id}`")
 
 # ---------------- RUN BOT ----------------
 bot.run(TOKEN)
